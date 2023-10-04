@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      body {
+        height: 100vh;
+      }
+      body {
+        display: grid;
+        place-items: center;
+      }
+      .text-green {
+        color: green;
+      }
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button :class="active ? 'text-green' : 'text-red' " @click="toggle">
+        {{button}}
+      </button>
+    </div>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            active: false,
+            button: "Click Me!",
+          };
+        },
+
+        methods: {
+          toggle() {
+            this.active = !this.active;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
