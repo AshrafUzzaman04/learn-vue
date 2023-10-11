@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Modifire</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click.alt="clicked">alt dhoira গুতা দেন</button>
+      <button @click.ctrl="clicked">ctrl dhoira গুতা দেন</button>
+      <button @click.shift="clicked">সিফট ধইরা গুতা দেন</button>
+    </div>
+
+    <script>
+      let app = {
+        methods: {
+          clicked() {
+            console.log("clicked");
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

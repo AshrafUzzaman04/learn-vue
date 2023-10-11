@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two Way Data Binding</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>my name is {{name}}</h1>
+
+      <!-- model find what's return the data property -->
+      <input type="text" v-model="name" />
+    </div>
+
+    <script>
+      let app = {
+        data() {
+          return {
+            name: "",
+          };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

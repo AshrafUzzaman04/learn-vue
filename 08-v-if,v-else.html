@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue v-if v-else</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="toggle">Toggle Details</button>
+      <p v-if="show" v-model="show">{{details}}</p>
+      <p v-else="age >= 18">Please Clicked the button</p>
+    </div>
+    <script>
+      let app = {
+        data() {
+          return {
+            details: "Assalamualaikum",
+            show: false,
+            age: 19,
+          };
+        },
+        methods: {
+          toggle() {
+            this.show = !this.show;
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

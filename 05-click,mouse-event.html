@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mousemove {
+        margin: 20px 0;
+        width: 200px;
+        height: 200px;
+        background-color: wheat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h3>You earned {{doller}}$ in this week</h3>
+      <div>
+        <button v-on:click="doller--">-</button>
+        <button v-on:click="doller++">+</button>
+      </div>
+
+      <div class="mousemove" @mousemove="over">
+        <span>{{mouse.x}} , {{mouse.y}}</span>
+      </div>
+    </div>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            doller: 0,
+            mouse: {
+              x: 0,
+              y: 0,
+            },
+          };
+        },
+
+        methods: {
+          over(e) {
+            (this.mouse.x = e.offsetX), (this.mouse.y = e.offsetY);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
