@@ -1,28 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <ashrafUzzaman msg="Welcome to Ashraf's World"></ashrafUzzaman>
+    <div>
+      <allFirend :friends="friends"></allFirend>
+      <onlineFirend :friends="friends"></onlineFirend>
+      <offlineFirend :friends="friends"></offlineFirend>
+    </div>
   </div>
 </template>
 
 <script>
-import ashrafUzzaman from "./components/hi.vue";
+import allFirend from "./components/allFriend.vue";
+import onlineFirend from "./components/onlineFriend.vue";
+import offlineFirend from "./components/oflineFirend.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      friends: [
+        { name: "ashraf", active: true },
+        {
+          name: "mahim",
+          active: false,
+        },
+        { name: "zaman", active: true },
+        { name: "Bipu", active: false },
+        { name: "Sefuda", active: true },
+        { name: "Tanha", active: true },
+        { name: "Rusha", active: true },
+        { name: "Rittika", active: true },
+        { name: "Ridita", active: true },
+        { name: "Jannatul Ferdaouse", active: true },
+      ],
+    };
+  },
   components: {
-    ashrafUzzaman,
+    allFirend,
+    onlineFirend,
+    offlineFirend,
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  > div {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 50px;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
