@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div>
-      <allFirend :friends="friends"></allFirend>
+      <allFirend :friends="friends" @delete="deleteFriend"></allFirend>
       <onlineFirend :friends="friends"></onlineFirend>
       <offlineFirend :friends="friends"></offlineFirend>
+      <!-- <hookComponent></hookComponent> -->
+      <axiosRequest></axiosRequest>
     </div>
   </div>
 </template>
@@ -12,6 +14,8 @@
 import allFirend from "./components/allFriend.vue";
 import onlineFirend from "./components/onlineFriend.vue";
 import offlineFirend from "./components/oflineFirend.vue";
+import axiosRequest from "./components/axiosRequest.vue";
+// import hookComponent from "./components/hookComponent.vue";
 
 export default {
   name: "App",
@@ -38,6 +42,16 @@ export default {
     allFirend,
     onlineFirend,
     offlineFirend,
+    // hookComponent,
+    axiosRequest,
+  },
+
+  methods: {
+    deleteFriend(payload) {
+      this.friends = this.friends.filter((f) => {
+        return f.name !== payload.name;
+      });
+    },
   },
 };
 </script>
